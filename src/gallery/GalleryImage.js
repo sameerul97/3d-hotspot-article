@@ -2,11 +2,14 @@ import * as THREE from 'three'
 import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useTexture, useCursor, Html } from '@react-three/drei'
+import { useRoute, useLocation } from 'wouter'
 
 import useStore from '../Store'
 import { IMAGE_PATH } from '../utils/Helper'
 
 export default function GalleryImage({ image, hotspots, ...props }) {
+  const [, setLocation] = useLocation()
+
   const ref = useRef()
   const [texture1, dispTexture] = useTexture([IMAGE_PATH + image, IMAGE_PATH + '/Marble_Tiles_001_height.png'])
   const [hovered, setHover] = useState(false)
@@ -81,6 +84,8 @@ export default function GalleryImage({ image, hotspots, ...props }) {
 
     setImageSelected()
     setClicked((clicked) => !clicked)
+
+    setLocation('/article')
   }
 
   return (
@@ -94,6 +99,7 @@ export default function GalleryImage({ image, hotspots, ...props }) {
 }
 
 function CloseButton({ setClicked, ...props }) {
+  const [, setLocation] = useLocation()
   const setImageSelected = useStore((state) => state.setImageSelected)
 
   const closeClick = (e, hotspot) => {
@@ -101,6 +107,8 @@ function CloseButton({ setClicked, ...props }) {
 
     setImageSelected()
     setClicked((clicked) => !clicked)
+
+    setLocation('/')
   }
 
   return (
