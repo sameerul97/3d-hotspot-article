@@ -15,6 +15,7 @@ const GalleryStore = {
   lookImages: {
     lookOne: [
       {
+        id: 'the-look-seventies-chic-1',
         src: '/look1/img1.jpeg',
         hotspots: [
           {
@@ -38,6 +39,7 @@ const GalleryStore = {
         ]
       },
       {
+        id: 'the-look-seventies-chic-2',
         src: '/look1/img2.jpeg',
         hotspots: [
           {
@@ -72,6 +74,7 @@ const GalleryStore = {
         ]
       },
       {
+        id: 'the-look-seventies-chic-3',
         src: '/look1/img3.jpeg',
         hotspots: [
           {
@@ -89,6 +92,7 @@ const GalleryStore = {
     ],
     lookTwo: [
       {
+        id: 'the-look-tonal-1',
         src: '/look2/img1.jpeg',
         hotspots: [
           {
@@ -112,6 +116,7 @@ const GalleryStore = {
         ]
       },
       {
+        id: 'the-look-tonal-2',
         src: '/look2/img2.jpeg',
         hotspots: [
           {
@@ -135,6 +140,7 @@ const GalleryStore = {
         ]
       },
       {
+        id: 'the-look-tonal-3',
         src: '/look2/img3.jpeg',
         hotspots: [
           {
@@ -152,6 +158,7 @@ const GalleryStore = {
     ],
     lookThree: [
       {
+        id: 'the-look-structured-utility-1',
         src: '/look3/img1.jpeg',
         hotspots: [
           {
@@ -175,6 +182,7 @@ const GalleryStore = {
         ]
       },
       {
+        id: 'the-look-structured-utility-2',
         src: '/look3/img2.jpeg',
         hotspots: [
           {
@@ -188,6 +196,7 @@ const GalleryStore = {
         ]
       },
       {
+        id: 'the-look-structured-utility-3',
         src: '/look3/img3.jpeg',
         hotspots: [
           {

@@ -16,16 +16,10 @@ export default function Rig() {
 
     if (isMobile) {
       damp(state.camera.position, [imageSelected ? 25 : 10, imageSelected ? 5 : 5, imageSelected ? 0 : 10], step, delta)
-
-      // if (hotspotSelected) {
-      //   damp(state.camera.position, [35, -15, 0], step, delta)
-      // }
     } else {
       damp(
         state.camera.position,
-        // [selected ? 25 : state.mouse.x * 3.5 + 8, selected ? 2 : state.mouse.y * 2.8 + 5, selected ? 0 : 10],
         [imageSelected ? 25 : state.mouse.x * 3.5 + 8, imageSelected ? 3 : state.mouse.y * 2.8 + 6, imageSelected ? 0 : 10],
-        // [selected ? 25 : state.mouse.x * 3.5 + 10, selected ? 1 : state.mouse.y * 2.8 + 6, selected ? 0 : 10],
         step,
         delta
       )
@@ -34,7 +28,6 @@ export default function Rig() {
         damp(state.camera.position, [35, -15, 0], step, delta)
       }
     }
-    // damp(state.camera.position, [imageSelected ? 25 : 10, imageSelected ? 5 : 5, imageSelected ? 0 : 10], step, delta)
 
     state.camera.lookAt(0, 1.2, 0)
     state.camera.updateProjectionMatrix()

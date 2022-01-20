@@ -7,8 +7,6 @@ import { a as aThree } from '@react-spring/three'
 import { config } from '@react-spring/web'
 import { useSpring } from '@react-spring/core'
 
-const AnimSky = aThree(Sky)
-
 import useStore from './Store'
 import Rig from './Rig'
 import Light from './Light'
@@ -107,9 +105,6 @@ export default function App() {
         }}
         shadows
         camera={{ position: [20, 15, 50], fov: 42 }}>
-        {/* <color attach="background" args={['#d0d0d0']} /> */}
-        <Suspense fallback={null}>{/* <Title /> */}</Suspense>
-
         <Clouds />
 
         <Gallery
@@ -138,11 +133,9 @@ export default function App() {
         />
 
         {!isMobile && <Sky distance={75} sunPosition={[50, 12, 30]} turbidity={0.1} rayleigh={0.225} azimuth={360} />}
-        {/* {!isMobile && <AnimSky distance={SkyDistance} sunPosition={[50, 12, 30]} turbidity={0.1} rayleigh={0.225} azimuth={360} />} */}
         <Light />
         <Rig />
         <Stats />
-        {/* <OrbitControls /> */}
       </Canvas>
       <Loader />
 

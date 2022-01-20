@@ -20,7 +20,6 @@ export default function Light() {
 
   return (
     <>
-      {/* Plane 3 */}
       <directionalLight ref={directionalLightRef} position={[0, 8, 5]} castShadow intensity={lightIntensity} shadow-camera-far={70} />
       <Suspense fallback={null}>
         <Environment preset="warehouse" />

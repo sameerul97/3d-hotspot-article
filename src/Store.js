@@ -45,16 +45,7 @@ const useStore = create((set) => ({
   setClientHeight: (deviceHeight) =>
     set((state) => {
       return { clientheight: deviceHeight }
-    }),
-
-  bears: 0,
-  increasePopulation: (by) => set((state) => ({ bears: state.bears + 1 })),
-  decreasePopulation: () =>
-    set((state) => {
-      if (state.bears === 0) return
-      return { bears: state.bears - 1 }
-    }),
-  removeAllBears: () => set({ bears: 0 })
+    })
 }))
 
 export default useStore

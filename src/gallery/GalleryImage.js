@@ -9,6 +9,7 @@ import { IMAGE_PATH } from '../utils/Helper'
 
 export default function GalleryImage({ image, hotspots, ...props }) {
   const [, setLocation] = useLocation()
+  const [, params] = useRoute('/article/:id')
 
   const ref = useRef()
   const [texture1, dispTexture] = useTexture([IMAGE_PATH + image, IMAGE_PATH + '/Marble_Tiles_001_height.png'])
@@ -43,11 +44,7 @@ export default function GalleryImage({ image, hotspots, ...props }) {
     <mesh position={hotspot.position}>
       <Html distanceFactor={10}>
         <div onClick={(e) => hotspotClick(e, hotspot)} data-hotspotid={hotspot.id}>
-          <span data-icon="text" className="hotspot-icon-null hotspot">
-            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-              <path d="M11.5 11.5h2v6h-2zM11.5 7.5h2v2h-2z"></path>
-            </svg> */}
-          </span>
+          <span data-icon="text" className="hotspot-icon-null hotspot"></span>
         </div>
       </Html>
     </mesh>
@@ -84,8 +81,7 @@ export default function GalleryImage({ image, hotspots, ...props }) {
 
     setImageSelected()
     setClicked((clicked) => !clicked)
-
-    setLocation('/article')
+    setLocation(`/article/${e.object.name}`)
   }
 
   return (

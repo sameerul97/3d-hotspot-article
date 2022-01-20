@@ -27,11 +27,9 @@ export default function InfoPanel() {
       className={`${hotspotSelected ? 'h-90' : 'h-0'} info_panel`}>
       <div className="close_wrapper">
         <button className="close-btn-null close" onClick={closeInfoPanel}></button>
-        {/* <span data-icon="text" className="close" onClick={closeInfoPanel}></span> */}
       </div>
 
       <div className="wrapper">
-        {/* <h1 className="mt-4 py-4">The Look: Seventies Chic</h1> */}
         <h3 className="mt-5 mb-4">{selectedHotspotData.title}</h3>
         <div className="row">
           <div className="col-md-8 text-left">

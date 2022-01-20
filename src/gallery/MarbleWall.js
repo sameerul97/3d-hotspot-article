@@ -17,6 +17,7 @@ export default function MarbleWall({ children, ...props }) {
       </group>
     )
   }
+
   const galleryPlaneTextures = useTexture([
     IMAGE_PATH + '/marbles/White_Marble_004_COLOR.jpg',
     IMAGE_PATH + '/marbles/White_Marble_004_OCC.jpg',
@@ -29,7 +30,6 @@ export default function MarbleWall({ children, ...props }) {
   useLayoutEffect(() => {
     galleryPlaneTextures.forEach((texture) => {
       texture.wrapT = texture.wrapS = THREE.RepeatWrapping
-      // texture.repeat.set(1, 1)
       texture.repeat.set(0.35, 0.6)
     })
   }, [galleryPlaneTextures])
@@ -38,10 +38,6 @@ export default function MarbleWall({ children, ...props }) {
     <group dispose={null}>
       <RoundedBox receiveShadow castShadow smoothness={10} radius={0.015} {...props}>
         <meshStandardMaterial
-          // attach="material"
-          // color={'white'}
-          // metalness={1.7}
-          // roughness={0.1}
           metalness={0.1}
           roughness={0.5}
           map={colorMap}

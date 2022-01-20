@@ -16,7 +16,6 @@ export default function Wall({ children, ...props }) {
   useLayoutEffect(() => {
     wallTextures.forEach((walltexture) => {
       walltexture.wrapT = walltexture.wrapS = THREE.RepeatWrapping
-      // texture.repeat.set(1, 1)
       walltexture.repeat.set(0.45, 1)
     })
   }, [wallTextures])
