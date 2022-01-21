@@ -21,6 +21,7 @@ import Intro from './Intro'
 import DeviceInfo from './DeviceInfo'
 
 import GalleryStore from './data/index'
+import useClientHeight from './hooks/useClientHeight'
 
 window.GalleryStore = GalleryStore
 
@@ -29,6 +30,7 @@ const raidoBarHeight = 94
 
 export default function App() {
   const GPUTier = useDetectGPU()
+  const [height] = useClientHeight()
 
   const [ready, setReady] = useState(false)
   const [start, setStart] = useState(false)
@@ -40,22 +42,25 @@ export default function App() {
   const setClientHeight = useStore((state) => state.setClientHeight)
 
   const [dpr, setDpr] = useState([1, 1])
+
   useEffect(() => {
     if (GPUTier.tier === '0' || GPUTier.isMobile) {
       setIsMobile(true)
       setDpr([1.5, 1.9])
-      // setDpr([1, 1])
     } else if (GPUTier.tier === '3') {
       setIsMobile(false)
       setDpr([2.25, 2.25])
     } else {
       setIsMobile(false)
-      // setDpr([1, 1.7])
       setDpr([1, 1.3])
     }
 
     setReady(true)
   }, [])
+
+  useEffect(() => {
+    setClientHeight(height)
+  }, [height])
 
   const galleryImagePosition = useStore((state) => state.galleryImagePosition)
   const gallerySectionPosition = useStore((state) => state.gallerySectionPosition)
@@ -85,7 +90,6 @@ export default function App() {
       readyCallback: function () {
         if (parentIFrame) {
           parentIFrame.getPageInfo(function (pageInfo) {
-            // console.log('S1', pageInfo)
             setClientHeight(pageInfo.clientHeight - (stationNavBarHeight + raidoBarHeight))
           })
         }
