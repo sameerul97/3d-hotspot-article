@@ -25,6 +25,7 @@ export default function MarbleWall({ children, ...props }) {
     IMAGE_PATH + '/marbles/White_Marble_004_DISP.png',
     IMAGE_PATH + '/marbles/White_Marble_004_ROUGH.jpg'
   ])
+
   const [colorMap, aoMap, normalMap, displacementMap, roughnessMap] = galleryPlaneTextures
 
   useLayoutEffect(() => {

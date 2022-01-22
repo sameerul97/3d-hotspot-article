@@ -12,11 +12,6 @@ export default function Gallery({ images, ...props }) {
   const imageSelected = useStore((state) => state.imageSelected)
   const setHotspotSelected = useStore((state) => state.setHotspotSelected)
 
-  // const hotspotClick = (e, id) => {
-  //   e.stopPropagation()
-  //   setHotspotSelected()
-  // }
-
   return (
     <aThree.group {...props}>
       <Suspense fallback={null}>

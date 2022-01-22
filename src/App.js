@@ -6,6 +6,7 @@ import { useGLTF, useDetectGPU } from '@react-three/drei'
 import { a as aThree } from '@react-spring/three'
 import { config } from '@react-spring/web'
 import { useSpring } from '@react-spring/core'
+import { useRoute } from 'wouter'
 
 import useStore from './Store'
 import Rig from './Rig'
@@ -31,17 +32,45 @@ const raidoBarHeight = 94
 export default function App() {
   const GPUTier = useDetectGPU()
   const [height] = useClientHeight()
+  const [, params] = useRoute('/article/:id')
 
   const [ready, setReady] = useState(false)
   const [start, setStart] = useState(false)
-
-  const isMobile = useStore((state) => state.isMobile)
-  const clientheight = useStore((state) => state.clientheight)
-
-  const setIsMobile = useStore((state) => state.setIsMobile)
-  const setClientHeight = useStore((state) => state.setClientHeight)
-
   const [dpr, setDpr] = useState([1, 1])
+
+  const [isMobile, setIsMobile] = [useStore((state) => state.isMobile), useStore((state) => state.setIsMobile)]
+  const [clientheight, setClientHeight] = [useStore((state) => state.clientheight), useStore((state) => state.setClientHeight)]
+
+  const [setGalleryImagePosition, setGallerySectionPosition, setImageSelected] = [
+    useStore((state) => state.setGalleryImagePosition),
+    useStore((state) => state.setGallerySectionPosition),
+    useStore((state) => state.setImageSelected)
+  ]
+
+  useEffect(() => {
+    const id = params?.id
+
+    if (id) {
+      let foundLook
+
+      try {
+        Object.keys(GalleryStore.lookImages).forEach((look) => {
+          const images = GalleryStore.lookImages[look]
+
+          images.filter((image) => {
+            if (id === image.id) {
+              foundLook = image
+              throw new Error()
+            }
+          })
+        })
+      } catch (error) {
+        setGalleryImagePosition(foundLook.galleryImagePosition)
+        setGallerySectionPosition(foundLook.gallerySectionPosition)
+        setImageSelected()
+      }
+    }
+  }, [])
 
   useEffect(() => {
     if (GPUTier.tier === '0' || GPUTier.isMobile) {
@@ -141,7 +170,7 @@ export default function App() {
         <Rig />
         <Stats />
       </Canvas>
-      <Loader />
+      <Loader containerStyles={{ zIndex: '10000000000' }} />
 
       <GalleryImageControls />
       <GallerySectionControls />

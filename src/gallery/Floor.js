@@ -5,14 +5,6 @@ import { useTexture, RoundedBox } from '@react-three/drei'
 import { IMAGE_PATH } from '../utils/Helper'
 
 export default function Floor({ color, ...props }) {
-  // const textures = useTexture([
-  //   '/Marble_Tiles_001_baseColor.jpg',
-  //   '/Marble_Tiles_001_ambientOcclusion.jpg',
-  //   '/Marble_Tiles_001_normal.jpg',
-  //   '/Marble_Tiles_001_height.png',
-  //   '/Marble_Tiles_001_roughness.jpg'
-  // ])
-
   const textures = useTexture([
     IMAGE_PATH + '/tiles/Tiles_048_basecolor.jpg',
     IMAGE_PATH + '/tiles/Tiles_048_ambientOcclusion.jpg',
@@ -27,7 +19,6 @@ export default function Floor({ color, ...props }) {
   useLayoutEffect(() => {
     textures.forEach((texture) => {
       texture.wrapT = texture.wrapS = THREE.RepeatWrapping
-      // texture.repeat.set(1, 1)
       texture.repeat.set(0.3, 4)
     })
   }, [textures])

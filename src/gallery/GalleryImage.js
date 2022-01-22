@@ -9,7 +9,6 @@ import { IMAGE_PATH } from '../utils/Helper'
 
 export default function GalleryImage({ image, hotspots, ...props }) {
   const [, setLocation] = useLocation()
-  const [, params] = useRoute('/article/:id')
 
   const ref = useRef()
   const [texture1, dispTexture] = useTexture([IMAGE_PATH + image, IMAGE_PATH + '/Marble_Tiles_001_height.png'])
