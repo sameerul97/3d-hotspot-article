@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
 
-import useStore from './Store'
-import { damp } from './utils'
+import useStore from '../store'
+import { damp } from '../utils/damp'
 
 export default function Rig() {
   const imageSelected = useStore((state) => state.imageSelected)

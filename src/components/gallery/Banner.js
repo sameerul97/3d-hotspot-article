@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useTexture, RoundedBox } from '@react-three/drei'
 
-import { IMAGE_PATH } from '../utils/Helper'
+import { IMAGE_PATH } from '../../utils/Helper'
 
 export default function Banner({ ...props }) {
   const look1Texture = useTexture(IMAGE_PATH + '/look1.jpg')

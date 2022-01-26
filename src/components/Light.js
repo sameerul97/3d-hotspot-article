@@ -3,7 +3,7 @@ import { useRef, Suspense } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Environment, Html } from '@react-three/drei'
 
-import useStore from './Store'
+import useStore from '../store'
 
 export default function Light() {
   const directionalLightRef = useRef()

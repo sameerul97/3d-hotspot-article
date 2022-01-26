@@ -1,4 +1,4 @@
-import useStore from './Store'
+import useStore from '../store'
 
 export default function Intro({ ready, setReady, start, setStart }) {
   const clientheight = useStore((state) => state.clientheight)

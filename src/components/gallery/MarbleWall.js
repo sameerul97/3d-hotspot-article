@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import { useLayoutEffect } from 'react'
 import { useTexture, RoundedBox } from '@react-three/drei'
-import useStore from '../Store'
-import { IMAGE_PATH } from '../utils/Helper'
+import useStore from '../../store'
+import { IMAGE_PATH } from '../../utils/Helper'
 
 export default function MarbleWall({ children, ...props }) {
   const isMobile = useStore((state) => state.isMobile)

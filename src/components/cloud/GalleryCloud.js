@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useTexture, useCursor, Html } from '@react-three/drei'
 
-import useStore from '../Store'
+import useStore from '../../store'
 
 export default function GalleryCloud({ image, ...props }) {
   const ref = useRef()

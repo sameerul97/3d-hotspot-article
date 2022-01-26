@@ -3,7 +3,7 @@ import React, { useCallback } from 'react'
 import { a as aWeb, config } from '@react-spring/web'
 import { useSpring } from '@react-spring/core'
 
-import useStore from '../Store'
+import useStore from '../../store'
 
 export default function GallerySectionControls() {
   const imageSelected = useStore((state) => state.imageSelected)

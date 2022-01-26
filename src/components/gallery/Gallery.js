@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { Html } from '@react-three/drei'
 import { a as aThree } from '@react-spring/three'
 
-import useStore from '../Store'
+import useStore from '../../store'
 
 import MarbleWall from './MarbleWall'
 import GalleryImage from './GalleryImage'

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react'
-import useStore from './Store'
+import useStore from '../store'
 
-import { IMAGE_PATH } from './utils/Helper'
+import { IMAGE_PATH } from '../utils/Helper'
 
 export default function InfoPanel() {
   const panelRef = useRef()

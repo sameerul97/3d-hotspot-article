@@ -4,8 +4,8 @@ import { useFrame } from '@react-three/fiber'
 import { useTexture, useCursor, Html } from '@react-three/drei'
 import { useRoute, useLocation } from 'wouter'
 
-import useStore from '../Store'
-import { IMAGE_PATH } from '../utils/Helper'
+import useStore from '../../store'
+import { IMAGE_PATH } from '../../utils/Helper'
 
 export default function GalleryImage({ image, hotspots, ...props }) {
   const [, setLocation] = useLocation()
@@ -80,7 +80,7 @@ export default function GalleryImage({ image, hotspots, ...props }) {
 
     setImageSelected()
     setClicked((clicked) => !clicked)
-    setLocation(`/article/${e.object.name}`)
+    setLocation(`/article/${e.object.name}`, { replace: true })
   }
 
   return (
@@ -103,7 +103,7 @@ function CloseButton({ setClicked, ...props }) {
     setImageSelected()
     setClicked((clicked) => !clicked)
 
-    setLocation('/')
+    setLocation('/', { replace: true })
   }
 
   return (

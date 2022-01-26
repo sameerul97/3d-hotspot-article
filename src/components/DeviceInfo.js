@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import useStore from './Store'
+import useStore from '../store'
 
 export default function DeviceInfo({ tier }) {
   const devMode = useStore((state) => state.devMode)

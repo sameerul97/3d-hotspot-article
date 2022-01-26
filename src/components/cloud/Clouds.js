@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { Cloud } from '@react-three/drei'
 import { useSpring, animated, config } from '@react-spring/three'
 
-import useStore from '../Store'
+import useStore from '../../store'
 import GalleryCloud from './GalleryCloud'
 
 const AnimCloud = animated(Cloud)

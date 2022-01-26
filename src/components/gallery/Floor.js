@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { useLayoutEffect } from 'react'
 import { useTexture, RoundedBox } from '@react-three/drei'
 
-import { IMAGE_PATH } from '../utils/Helper'
+import { IMAGE_PATH } from '../../utils/Helper'
 
 export default function Floor({ color, ...props }) {
   const textures = useTexture([
